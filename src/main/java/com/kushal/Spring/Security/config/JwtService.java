@@ -33,7 +33,13 @@ public class JwtService {
 
     // generating a token by passing claims and userDetails
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
-        return Jwts.builder().setClaims(extraClaims).setSubject(userDetails.getUsername()).setIssuedAt(new Date((System.currentTimeMillis()))).setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24)).signWith(getSignInKey(), SignatureAlgorithm.HS256).compact();
+        return Jwts.builder()
+                   .setClaims(extraClaims)
+                   .setSubject(userDetails.getUsername())
+                   .setIssuedAt(new Date((System.currentTimeMillis())))
+                   .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
+                   .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                   .compact();
     }
 
     //validate token
@@ -59,7 +65,11 @@ public class JwtService {
 
     //extracting all claims
     private Claims extractAllClaims(String jwtToken) {
-        return Jwts.parserBuilder().setSigningKey(getSignInKey()).build().parseClaimsJws(jwtToken).getBody();
+        return Jwts.parserBuilder()
+                   .setSigningKey(getSignInKey())
+                   .build()
+                   .parseClaimsJws(jwtToken)
+                   .getBody();
     }
 
     private Key getSignInKey() {
