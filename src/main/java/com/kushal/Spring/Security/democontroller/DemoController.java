@@ -1,4 +1,4 @@
-package com.kushal.Spring.Security.DemoController;
+package com.kushal.Spring.Security.democontroller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
