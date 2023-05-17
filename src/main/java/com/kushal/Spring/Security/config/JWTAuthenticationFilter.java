@@ -21,7 +21,6 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //
@@ -38,7 +37,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
         jwt = authHeader.substring(7);
 
         /*
-         TODO: extract the userEmail from JWT token. So we need to extract
+          extract the userEmail from JWT token. So we need to extract
           userEmail from JWT token. How? You need to create a class that can manipulate JWT token.
          */
         userEmail = jwtService.extractUsername(jwt);

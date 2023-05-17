@@ -22,10 +22,12 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
+//        return new UserDetailsService() {}
 //        @Override
 //        public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //            return null;
 //        }
+//    }
 
         //replacing by lambda and fetch user from database
 //        return username -> null
